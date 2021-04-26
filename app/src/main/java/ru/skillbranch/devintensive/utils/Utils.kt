@@ -1,7 +1,6 @@
-package uz.paynet.devintensive.utils
+package ru.skillbranch.devintensive.utils
 
-import android.R.id.message
-import uz.paynet.devintensive.extensions.getFirst
+import ru.skillbranch.devintensive.extensions.getFirst
 
 
 object Utils {

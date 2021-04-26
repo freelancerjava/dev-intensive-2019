@@ -1,6 +1,6 @@
-package uz.paynet.devintensive.models
+package ru.skillbranch.devintensive.models
 
-import uz.paynet.devintensive.utils.Utils
+import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 data class User(

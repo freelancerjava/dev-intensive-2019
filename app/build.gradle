@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "uz.paynet.devintensive"
+        applicationId "ru.skillbranch.ru.skillbranch.ru.skillbranch.devintensive"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

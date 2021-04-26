@@ -1,4 +1,4 @@
-package uz.paynet.devintensive.extensions
+package ru.skillbranch.devintensive.extensions
 
 import org.jsoup.Jsoup
 
