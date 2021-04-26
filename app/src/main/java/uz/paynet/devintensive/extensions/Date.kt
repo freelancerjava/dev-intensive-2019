@@ -30,7 +30,18 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
 }
 
 fun Date.humanazeDiff(date: Date = Date()): String {
-    TODO("Not implemented")
+    val diff: Long = date.time - this.time
+    val seconds = diff / 1000
+    val minutes = seconds / 60
+    val hours = minutes / 60
+    val days = hours / 24
+    return when {
+        days > 0 -> "$days дней назад"
+        hours > 0 -> "$hours часов назад"
+        minutes > 0 -> "$minutes минут назад"
+        seconds > 0 -> "$seconds секунд назад"
+        else -> "Только что"
+    }
 }
 
 

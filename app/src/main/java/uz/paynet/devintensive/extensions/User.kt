@@ -6,10 +6,10 @@ import uz.paynet.devintensive.utils.Utils
 
 fun User.toUserView(): UserView {
 
-    val nickname = Utils.transliteration("$firstName, $lastName")
+    val nickname = Utils.transliteration("$firstName $lastName")
     val initials = Utils.toInitials(firstName, lastName)
     val status =
-        if (lastName == null) "Never been active" else if (isOnline) "online" else "Last visit ... ${lastVisit?.humanazeDiff()}"
+        if (lastVisit == null) "Never been active" else if (isOnline) "online" else "Last visit ... ${lastVisit?.humanazeDiff()}"
 
     return UserView(
         id,

@@ -3,10 +3,7 @@ package uz.paynet.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import uz.paynet.devintensive.extensions.TimeUnits
-import uz.paynet.devintensive.extensions.add
-import uz.paynet.devintensive.extensions.format
-import uz.paynet.devintensive.extensions.toUserView
+import uz.paynet.devintensive.extensions.*
 import uz.paynet.devintensive.models.*
 import java.util.*
 
@@ -74,10 +71,13 @@ class ExampleUnitTest {
 
     @Test
     fun test_dataq_mapping(){
-        val user = User.makeUser("Alim Salimov")
+        val user = User.makeUser("Макеев Михаил")
+        val user2 = user.copy(id = "3", lastVisit = Date())
         val userView = user.toUserView()
+        val user2View = user2.toUserView()
 
         userView.printMe()
+        user2View.printMe()
     }
 
     @Test
@@ -94,5 +94,15 @@ class ExampleUnitTest {
 
         println(txtMessage.formatMessage())
         println(imageMessage.formatMessage())
+    }
+
+    @Test
+    fun test_strip_html(){
+        print("<a>qale?</a>".stripHtml())
+    }
+
+    @Test
+    fun test_truncate(){
+        print("A long time ago ...".truncate(8))
     }
 }
