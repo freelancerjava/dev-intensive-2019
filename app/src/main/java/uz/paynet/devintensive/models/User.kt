@@ -10,8 +10,8 @@ data class User(
     var avatar: String?,
     var rating: Int = 0,
     var respect: Int = 0,
-    val lastVisit: Date? = null,
-    val isOnline: Boolean = false
+    var lastVisit: Date? = Date(),
+    var isOnline: Boolean = false
 ) {
     constructor(
         id: String,

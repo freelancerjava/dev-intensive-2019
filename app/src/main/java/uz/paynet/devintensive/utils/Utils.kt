@@ -12,7 +12,7 @@ object Utils {
         val firstName = parts?.getOrNull(0)
         val lastName = parts?.getOrNull(1)
 
-        return Pair(firstName, lastName)
+        return Pair(if(firstName?.trim() == "") null else firstName  , if(lastName?.trim() == "") null else lastName  )
     }
 
     fun transliteration(payload: String, divider: String = " "): String {
