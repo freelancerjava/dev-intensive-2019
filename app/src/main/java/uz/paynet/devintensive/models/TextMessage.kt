@@ -1,6 +1,6 @@
 package uz.paynet.devintensive.models
 
-import uz.paynet.devintensive.extensions.humanazeDiff
+import uz.paynet.devintensive.extensions.humanizeDiff
 import java.util.*
 
 class TextMessage(
@@ -13,6 +13,6 @@ class TextMessage(
 ) : BaseMessage(id, from, chat, isIncoming, date) {
     override fun formatMessage(): String =
         "id:$id ${from?.firstName} ${if (isIncoming) "receive" else "send"}" +
-                " message: \"$text\" date: ${date.humanazeDiff()}"
+                " message: \"$text\" date: ${date.humanizeDiff()}"
 }
 

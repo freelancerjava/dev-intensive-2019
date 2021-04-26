@@ -1,6 +1,6 @@
 package uz.paynet.devintensive.models
 
-import uz.paynet.devintensive.extensions.humanazeDiff
+import uz.paynet.devintensive.extensions.humanizeDiff
 import java.util.*
 
 class ImageMessage(
@@ -13,5 +13,5 @@ class ImageMessage(
 ) : BaseMessage(id, from, chat, isIncoming, date) {
     override fun formatMessage(): String =
         "id:$id ${from?.firstName} ${if (isIncoming) "receive" else "send"}" +
-                " image: \"$image\" date: ${date.humanazeDiff()}"
+                " image: \"$image\" date: ${date.humanizeDiff()}"
 }

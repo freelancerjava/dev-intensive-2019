@@ -5,6 +5,7 @@ import org.junit.Test
 import org.junit.Assert.*
 import uz.paynet.devintensive.extensions.*
 import uz.paynet.devintensive.models.*
+import uz.paynet.devintensive.utils.Utils
 import java.util.*
 
 /**
@@ -72,12 +73,27 @@ class ExampleUnitTest {
     @Test
     fun test_dataq_mapping(){
         val user = User.makeUser("Макеев Михаил")
-        val user2 = user.copy(id = "3", lastVisit = Date().add(-55, TimeUnits.SECOND))
+        val user2 = user.copy(id = "2", lastVisit = Date().add(-55, TimeUnits.SECOND))
+        val user3 = user.copy(id = "3", lastVisit = Date().add(-55, TimeUnits.SECOND))
+        val user4 = user.copy(id = "4", lastVisit = Date().add(-55, TimeUnits.SECOND))
+        val user5 = user.copy(id = "5", lastVisit = Date().add(-55, TimeUnits.SECOND))
+        val user6 = user.copy(id = "6", lastVisit = Date().add(-55, TimeUnits.SECOND))
+        val user7 = user.copy(id = "7", lastVisit = Date().add(-55, TimeUnits.SECOND))
         val userView = user.toUserView()
         val user2View = user2.toUserView()
+        val user3View = user3.toUserView()
+        val user4View = user4.toUserView()
+        val user5View = user5.toUserView()
+        val user6View = user6.toUserView()
 
         userView.printMe()
         user2View.printMe()
+        user3View.printMe()
+        user4View.printMe()
+        user5View.printMe()
+        user6View.printMe()
+
+
     }
 
     @Test
@@ -98,11 +114,42 @@ class ExampleUnitTest {
 
     @Test
     fun test_strip_html(){
-        print("<a>qale?</a>".stripHtml())
+        print("<p>Образовательное       IT-сообщество Skill Branch</p>".stripHtml())
     }
 
     @Test
     fun test_truncate(){
-        print("A long time ago ...".truncate(8))
+        print("A     ".truncate(3))
+    }
+
+    @Test
+    fun test_humanaze_diff(){
+        println("""
+            ${Date().add(-2, TimeUnits.HOUR).humanizeDiff()} //2 часа назад
+            ${Date().add(-5, TimeUnits.DAY).humanizeDiff()} //5 дней назад
+            ${Date().add(2, TimeUnits.MINUTE).humanizeDiff()} //через 2 минуты
+            ${Date().add(7, TimeUnits.DAY).humanizeDiff()} //через 7 дней
+            ${Date().add(-400, TimeUnits.DAY).humanizeDiff()} //более года назад
+            ${Date().add(400, TimeUnits.DAY).humanizeDiff()} //более чем через год
+            ${-20%10}
+        """.trimIndent())
+    }
+
+    @Test
+    fun test_transliteration(){
+        println("""
+            ${Utils.transliteration("Женя Стереотипов")} //Zhenya Stereotipov
+            ${Utils.transliteration("Amazing Петр","_")} //Amazing_Petr
+        """.trimIndent())
+    }
+
+    @Test
+    fun test_initials(){
+        println("""
+            ${Utils.toInitials("john" ,"doe")} //JD
+            ${Utils.toInitials("John", null)} //J
+            ${Utils.toInitials(null, null)} //null
+            ${Utils.toInitials(" ", "")} //null
+        """.trimIndent())
     }
 }

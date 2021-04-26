@@ -2,8 +2,9 @@ package uz.paynet.devintensive.extensions
 
 import org.jsoup.Jsoup
 
-fun String.truncate(len: Int): String {
-    return this.subSequence(0, len) as String + "..."
+fun String.truncate(len: Int = 16): String {
+    val temp = this.trim()
+    return if(temp.length > len) "${(subSequence(0, len) as String).trim()}..." else trim()
 }
 
 fun String.stripHtml():String{
@@ -11,5 +12,6 @@ fun String.stripHtml():String{
 }
 
 fun String.getFirst(): String {
-    return this.subSequence(0, 1) as String
+    if(this.trim().isEmpty()) return ""
+    return (this.subSequence(0, 1) as String).toUpperCase()
 }
