@@ -72,7 +72,7 @@ class ExampleUnitTest {
     @Test
     fun test_dataq_mapping(){
         val user = User.makeUser("Макеев Михаил")
-        val user2 = user.copy(id = "3", lastVisit = Date())
+        val user2 = user.copy(id = "3", lastVisit = Date().add(-55, TimeUnits.SECOND))
         val userView = user.toUserView()
         val user2View = user2.toUserView()
 

@@ -36,10 +36,18 @@ fun Date.humanazeDiff(date: Date = Date()): String {
     val hours = minutes / 60
     val days = hours / 24
     return when {
-        days > 0 -> "$days дней назад"
-        hours > 0 -> "$hours часов назад"
-        minutes > 0 -> "$minutes минут назад"
-        seconds > 0 -> "$seconds секунд назад"
+        days > 360 -> "более года назад"
+        hours > 26 && days <= 360 -> "$days дней назад"
+        hours in 22..26 -> "день назад"
+//        hours <= 26 && hours > 22 -> "день назад"
+        minutes >= 75 && hours <= 22 -> "$hours часов назад"
+        minutes in 45..75 -> "час назад"
+//        minutes < 75 && minutes >= 45 -> "час назад"
+        seconds > 75 && minutes < 45 -> "$minutes минут назад"
+        seconds in 45..75 -> "минуту назад"
+//        seconds >= 45 && seconds <= 75 -> "минуту назад"
+//        seconds > 1 -> "$seconds секунд назад"
+        seconds > 1 || seconds < 45 -> "несколько секунд назад"
         else -> "Только что"
     }
 }
