@@ -116,7 +116,10 @@ class ExampleUnitTest {
 
     @Test
     fun test_strip_html() {
-        print("<p>Образовательное       IT-сообщество Skill Branch</p>".stripHtml())
+        println("""
+            ${"<p class=\"title\">Образовательное IT-сообщество Skill Branch</p>".stripHtml()} //Образовательное IT-сообщество Skill Branch
+            ${"<p>Образовательное       IT-сообщество Skill Branch</p>".stripHtml()} //Образовательное IT-сообщество Skill Branch
+        """.trimIndent())
     }
 
     @Test
@@ -125,7 +128,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_humanaze_diff() {
+    fun test_humanize_diff() {
         println(
             """
             ${Date().add(-2, TimeUnits.HOUR).humanizeDiff()} //2 часа назад
@@ -134,7 +137,6 @@ class ExampleUnitTest {
             ${Date().add(7, TimeUnits.DAY).humanizeDiff()} //через 7 дней
             ${Date().add(-400, TimeUnits.DAY).humanizeDiff()} //более года назад
             ${Date().add(400, TimeUnits.DAY).humanizeDiff()} //более чем через год
-            ${-20 % 10}
         """.trimIndent()
         )
     }
