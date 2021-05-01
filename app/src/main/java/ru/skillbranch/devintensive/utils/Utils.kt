@@ -31,8 +31,6 @@ object Utils {
             }
         }
         return builder.toString()
-
-        return "transliterated"
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {

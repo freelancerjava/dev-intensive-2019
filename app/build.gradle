@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+
+    id 'kotlin-kapt'
 }
 
 android {
@@ -8,7 +11,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "ru.skillbranch.ru.skillbranch.ru.skillbranch.devintensive"
+        applicationId "ru.skillbranch.devintensive"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
